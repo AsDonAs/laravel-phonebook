@@ -14,6 +14,7 @@ use Illuminate\Notifications\Notifiable;
  * @property string $name
  * @property string $email
  * @property string $password
+ * @property string $api_token
  * @property-read integer $id
  */
 class User extends Authenticatable
