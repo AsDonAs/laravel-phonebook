@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Main\PhoneContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +23,13 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+Route::get('/phone-contacts/create', [PhoneContactController::class, "create"])->name("phone-contacts.create");
+Route::get('/phone-contacts/edit/{id}', [PhoneContactController::class, "edit"])->name("phone-contacts.edit");
+Route::resource('/phone-contacts', PhoneContactController::class)->names([
+    'index' => 'phone-contacts',
+    'store' => 'phone-contacts.store',
+    'show' => 'phone-contacts.show',
+    'update' => 'phone-contacts.update',
+    'destroy' => 'phone-contacts.destroy',
+]);
