@@ -10,11 +10,12 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @property integer $user_id
  * @property string $first_name
- * @property string $second_name
- * @property string $last_name
- * @property string $phone
- * @property string $description
+ * @property string|null $second_name
+ * @property string|null $last_name
+ * @property string|null $phone
+ * @property string|null $description
  * @property boolean $is_favorite
+ * @property-read integer|null $id
  * @property-read string $fullname
  */
 class PhoneContact extends Model
