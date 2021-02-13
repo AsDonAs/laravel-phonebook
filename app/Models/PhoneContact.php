@@ -53,6 +53,20 @@ class PhoneContact extends Model
     ];
 
     /**
+     * @return array
+     */
+    public static function fillableParamsForRequests()
+    {
+        return [
+            "first_name",
+            "second_name",
+            "last_name",
+            "phone",
+            "description",
+        ];
+    }
+
+    /**
      * @return string
      */
     public function getFullnameAttribute()
