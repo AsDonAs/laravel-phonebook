@@ -20,6 +20,7 @@ class CreatePhoneContactsTable extends Migration
             $table->string('second_name')->nullable(true)->default(NULL);
             $table->string('last_name')->nullable(true)->default(NULL);
             $table->string('phone')->nullable(true)->default(NULL);
+            $table->text('description')->nullable(true)->default(NULL);
             $table->boolean('is_favorite')->nullable(false)->default(false);
             $table->timestamps();
         });
