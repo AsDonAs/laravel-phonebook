@@ -24,4 +24,12 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-Route::resource('/phone-contacts', PhoneContactController::class);
+Route::get('/phone-contacts/create', [PhoneContactController::class, "create"])->name("phone-contacts.create");
+Route::get('/phone-contacts/edit/{id}', [PhoneContactController::class, "edit"])->name("phone-contacts.edit");
+Route::resource('/phone-contacts', PhoneContactController::class)->names([
+    'index' => 'phone-contacts',
+    'store' => 'phone-contacts.store',
+    'show' => 'phone-contacts.show',
+    'update' => 'phone-contacts.update',
+    'destroy' => 'phone-contacts.destroy',
+]);

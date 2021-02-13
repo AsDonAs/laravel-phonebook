@@ -17,6 +17,7 @@ class PhoneContactResource extends JsonResource
             "first_name" => $this->first_name,
             "second_name" => $this->second_name,
             "last_name" => $this->last_name,
+            "fullname" => $this->fullname,
             "phone" => $this->phone,
             "description" => $this->description,
             "is_favorite" => $this->is_favorite,

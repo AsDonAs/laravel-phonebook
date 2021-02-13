@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Main;
 
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Http\Requests\Main\CreatePhoneContactRequest;
 use App\Http\Requests\Main\UpdatePhoneContactRequest;
@@ -43,7 +44,18 @@ class PhoneContactController extends Controller
 
         $collection = PhoneContactResource::collection($contacts);
 
-        return response()->json($collection, 200);
+        return view("main.phone-contact.index", ["contacts" => $collection]);
+    }
+
+    /**
+     * @param Request $request
+     * @return Response
+     */
+    public function create(Request $request)
+    {
+        $data = $request->all();
+
+        return view("main.phone-contact.create", ["data" => $data]);
     }
 
     /**
@@ -60,9 +72,9 @@ class PhoneContactController extends Controller
         /** @var PhoneContact $phoneContact */
         $phoneContact = PhoneContact::create($data);
 
-        $resource = new PhoneContactResource($phoneContact);
+        $id = $phoneContact->id;
 
-        return response()->json($resource, 200);
+        return redirect(route("phone-contacts.show", [$id]));
     }
 
     /**
@@ -82,7 +94,33 @@ class PhoneContactController extends Controller
 
         $resource = new PhoneContactResource($phoneContact);
 
-        return response()->json($resource, 200);
+        return view("main.phone-contact.show", ["data" => $resource]);
+    }
+
+    /**
+     * @param Request $request
+     * @param $id
+     * @return Response
+     */
+    public function edit(Request $request, $id)
+    {
+        $data = $request->all();
+
+        /** @var PhoneContact $phoneContact */
+        $phoneContact = PhoneContact::findOrFail($id);
+
+        try {
+            $this->validateAccess($phoneContact);
+        } catch (\Exception $e) {
+            return response()->json(["Message" => $e->getMessage()], 403);
+        }
+
+        $phoneContact = new PhoneContactResource($phoneContact);
+        $phoneContactArray = $phoneContact->toArray($request);
+
+        $data = array_merge($phoneContactArray, $data);
+
+        return view("main.phone-contact.edit", ["data" => $data]);
     }
 
     /**
@@ -106,14 +144,10 @@ class PhoneContactController extends Controller
         $status = $phoneContact->update($data);
 
         if (!$status) {
-            return response()->json(["Message" => "Something went wrong."], 404);
+            return redirect(route("phone-contacts.edit", [$id]));
         }
 
-        $phoneContact->refresh();
-
-        $resource = new PhoneContactResource($phoneContact);
-
-        return response()->json($resource, 200);
+        return redirect(route("phone-contacts.show", [$id]));
     }
 
     /**
@@ -138,7 +172,7 @@ class PhoneContactController extends Controller
             return response()->json(["Message" => "Something went wrong."], 404);
         }
 
-        return response()->json($id, 200);
+        return redirect(route("phone-contacts"));
     }
 
     /**
