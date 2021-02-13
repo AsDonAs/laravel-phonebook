@@ -26,7 +26,7 @@ class PhoneContactAPIController extends Controller
     public function __construct()
     {
         $this->middleware("auth:api");
-        $this->user = Auth::user();
+        $this->user = Auth::guard("api")->user();
     }
 
     /**
