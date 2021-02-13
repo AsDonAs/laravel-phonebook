@@ -63,6 +63,7 @@ class PhoneContact extends Model
             "last_name",
             "phone",
             "description",
+            "is_favorite",
         ];
     }
 
