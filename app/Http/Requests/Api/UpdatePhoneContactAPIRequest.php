@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Requests\API;
+namespace App\Http\Requests\Api;
 
 use Illuminate\Foundation\Http\FormRequest;
 
 /**
- * Class CreatePhoneContactAPIRequest
+ * Class UpdatePhoneContactAPIRequest
  * @package App\Http\Requests\API
  */
-class CreatePhoneContactAPIRequest extends FormRequest
+class UpdatePhoneContactAPIRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -33,7 +33,7 @@ class CreatePhoneContactAPIRequest extends FormRequest
             'last_name' => 'nullable|string',
             'phone' => 'nullable|string',
             'description' => 'nullable|string',
-            'is_favorite' => 'nullable|boolean',
+            'is_favorite' => 'required|boolean',
         ];
     }
 }
