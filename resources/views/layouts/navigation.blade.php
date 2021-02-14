@@ -10,8 +10,11 @@
         @auth
             <div class="navbar-text">{{ __('Welcome') . ", " . Auth::user()->name }}</div>
         @endauth
-        <div class="">
+        <div class="btn-group" role="group">
             @auth
+                <a href="{{ route('phone-contacts') }}" title="{{ __('Phone contacts') }}">
+                    <span class="material-icons">list_alt</span>
+                </a>
                 <form class="form-inline" method="POST" action="{{ route('logout') }}">
                     @csrf
                     <x-nav-link :href="route('logout')"
