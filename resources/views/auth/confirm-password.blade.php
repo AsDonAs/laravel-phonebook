@@ -1,11 +1,10 @@
 <x-guest-layout>
+    <x-slot name="header">
+        <h2>
+            {{ __('Confirm password') }}
+        </h2>
+    </x-slot>
     <x-auth-card>
-        <x-slot name="header">
-            <h2>
-                {{ __('Confirm password') }}
-            </h2>
-        </x-slot>
-
         <x-slot name="logo">
             <a href="/">
                 <x-application-logo/>
