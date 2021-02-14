@@ -22,9 +22,7 @@
                     </x-nav-link>
                 </form>
             @else
-                @if (Route::has('register'))
-                    <a href="{{ route('register') }}" title="{{ __('Register') }}"><span class="material-icons">person_add_alt_1</span></a>
-                @endif
+                <a href="{{ route('register') }}" title="{{ __('Register') }}"><span class="material-icons">person_add_alt_1</span></a>
                 <a href="{{ route('login') }}" title="{{ __('Login') }}"><span class="material-icons">login</span></a>
             @endauth
         </div>

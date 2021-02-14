@@ -29,16 +29,20 @@
                     </div>
                 </div>
             @else
-                @if (Route::has('register'))
-                    <a href="{{ route('register') }}" class="btn btn-info d-flex align-items-center" title="{{ __('Register') }}">
-                        <span class="material-icons">person_add_alt_1</span>
-                        {{ __('Register') }}
-                    </a>
-                @endif
-                <a href="{{ route('login') }}" class="btn btn-success d-flex align-items-center" title="{{ __('Login') }}">
-                    <span class="material-icons">login</span>
-                    {{ __('Login') }}
-                </a>
+                <div class="row">
+                    <div class="col-md-6">
+                        <a href="{{ route('register') }}" class="btn btn-info d-flex align-items-center" title="{{ __('Register') }}">
+                            <span class="material-icons">person_add_alt_1</span>
+                            {{ __('Register') }}
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="{{ route('login') }}" class="btn btn-success d-flex align-items-center" title="{{ __('Login') }}">
+                            <span class="material-icons">login</span>
+                            {{ __('Login') }}
+                        </a>
+                    </div>
+                </div>
             @endauth
         </div>
     </div>
