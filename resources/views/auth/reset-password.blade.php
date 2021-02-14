@@ -1,11 +1,8 @@
 <x-guest-layout>
+    <x-slot name="header">
+        {{ __('Reset password') }}
+    </x-slot>
     <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo/>
-            </a>
-        </x-slot>
-
         <!-- Validation Errors -->
         <x-auth-validation-errors :errors="$errors" />
 

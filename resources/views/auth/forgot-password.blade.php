@@ -1,11 +1,8 @@
 <x-guest-layout>
+    <x-slot name="header">
+        {{ __('Forgot password') }}
+    </x-slot>
     <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo/>
-            </a>
-        </x-slot>
-
         <div>
             {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
         </div>
@@ -20,14 +17,14 @@
             @csrf
 
             <!-- Email Address -->
-            <div>
+            <div class="form-group">
                 <x-label for="email" :value="__('Email')" />
 
                 <x-input id="email" type="email" name="email" :value="old('email')" required autofocus />
             </div>
 
-            <div>
-                <x-button>
+            <div class="form-group">
+                <x-button class="btn btn-info">
                     {{ __('Email Password Reset Link') }}
                 </x-button>
             </div>

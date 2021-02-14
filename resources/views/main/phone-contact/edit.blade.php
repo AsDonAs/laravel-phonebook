@@ -1,14 +1,18 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2>
-            Редактирование контакта
-        </h2>
+        {{ __('Edit contact') }}
     </x-slot>
 
-    @include("main.phone-contact.phone-contact-form", [
-        "method" => "PATCH",
-        "data" => $data,
-        "actionRoute" => "phone-contacts.update",
-        "submitButtonTitle" => __('Edit'),
-    ])
+    <div class="container main-pages">
+        <div class="card">
+            <div class="card-body">
+                @include("main.phone-contact.phone-contact-form", [
+                    "method" => "PATCH",
+                    "data" => $data,
+                    "actionRoute" => "phone-contacts.update",
+                    "submitButtonTitle" => __('Edit'),
+                ])
+            </div>
+        </div>
+    </div>
 </x-app-layout>

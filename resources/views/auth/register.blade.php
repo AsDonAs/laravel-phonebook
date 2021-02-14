@@ -1,11 +1,8 @@
 <x-guest-layout>
+    <x-slot name="header">
+        {{ __('Registration') }}
+    </x-slot>
     <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo/>
-            </a>
-        </x-slot>
-
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
@@ -13,21 +10,21 @@
             @csrf
 
             <!-- Name -->
-            <div>
+            <div class="form-group">
                 <x-label for="name" :value="__('Name')" />
 
                 <x-input id="name" type="text" name="name" :value="old('name')" required autofocus />
             </div>
 
             <!-- Email Address -->
-            <div>
+            <div class="form-group">
                 <x-label for="email" :value="__('Email')" />
 
                 <x-input id="email" type="email" name="email" :value="old('email')" required />
             </div>
 
             <!-- Password -->
-            <div>
+            <div class="form-group">
                 <x-label for="password" :value="__('Password')" />
 
                 <x-input id="password"
@@ -37,7 +34,7 @@
             </div>
 
             <!-- Confirm Password -->
-            <div>
+            <div class="form-group">
                 <x-label for="password_confirmation" :value="__('Confirm Password')" />
 
                 <x-input id="password_confirmation"
@@ -45,12 +42,12 @@
                                 name="password_confirmation" required />
             </div>
 
-            <div>
-                <a class="underline" href="{{ route('login') }}">
+            <div class="form-group">
+                <a class="btn btn-info" href="{{ route('login') }}">
                     {{ __('Already registered?') }}
                 </a>
 
-                <x-button>
+                <x-button class="btn btn-success">
                     {{ __('Register') }}
                 </x-button>
             </div>

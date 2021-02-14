@@ -10,7 +10,7 @@
     <input name="_method" type="hidden" value="{{ $method }}">
 
     <!-- First name -->
-    <div>
+    <div class="form-group">
         <x-label for="first_name" :value="__('First name')" />
 
         <? $firstName = old("first_name") ?? $data["first_name"] ?? null ?>
@@ -18,7 +18,7 @@
     </div>
 
     <!-- Last name -->
-    <div>
+    <div class="form-group">
         <x-label for="last_name" :value="__('Last name')" />
 
         <? $lastName = old("last_name") ?? $data["last_name"] ?? null ?>
@@ -26,7 +26,7 @@
     </div>
 
     <!-- Second name -->
-    <div>
+    <div class="form-group">
         <x-label for="second_name" :value="__('Second name')" />
 
         <? $secondName = old("second_name") ?? $data["second_name"] ?? null ?>
@@ -34,7 +34,7 @@
     </div>
 
     <!-- Phone -->
-    <div>
+    <div class="form-group">
         <x-label for="phone" :value="__('Phone')" />
 
         <? $phone = old("phone") ?? $data["phone"] ?? null ?>
@@ -42,7 +42,7 @@
     </div>
 
     <!-- Description -->
-    <div>
+    <div class="form-group">
         <x-label for="description" :value="__('Description')" />
 
         <? $description = old("description") ?? $data["description"] ?? null ?>
@@ -50,17 +50,17 @@
     </div>
 
     <!-- Is Favorite -->
-    <div>
-        <label for="is_favorite">
-            <? $isFavorite = $data["is_favorite"] ?? 0 ?>
-            <input type="hidden" name="is_favorite" value="0" />
-            <input id="is_favorite" type="checkbox" value="1" {{ $isFavorite ? "checked" : "" }} name="is_favorite">
+    <div class="form-group form-check">
+        <? $isFavorite = $data["is_favorite"] ?? 0 ?>
+        <input type="hidden" name="is_favorite" value="0" />
+        <input class="form-check-input" id="is_favorite" type="checkbox" value="1" {{ $isFavorite ? "checked" : "" }} name="is_favorite">
+        <label class="form-check-label" for="is_favorite">
             <span>{{ __('Favorite') }}</span>
         </label>
     </div>
 
     <div>
-        <x-button>
+        <x-button class="btn btn-success">
             {{ $submitButtonTitle }}
         </x-button>
     </div>
