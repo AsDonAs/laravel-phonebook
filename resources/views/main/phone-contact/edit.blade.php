@@ -1,8 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2>
-            Редактирование контакта
-        </h2>
+        {{ __('Edit contact') }}
     </x-slot>
 
     @include("main.phone-contact.phone-contact-form", [

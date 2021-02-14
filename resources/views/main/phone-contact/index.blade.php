@@ -1,13 +1,11 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2>
-            Список контактов
-        </h2>
+        {{ __('List contacts') }}
     </x-slot>
     <div>
         Items will be here!
 
-        <a href="{{ route("phone-contacts.create") }}">Добавить контакт</a>
+        <a href="{{ route("phone-contacts.create") }}">{{ __('Add contact') }}</a>
         <table>
             <tr>
                 <td>ID</td>
