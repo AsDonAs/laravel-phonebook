@@ -1,8 +1,6 @@
 <x-guest-layout>
     <x-slot name="header">
-        <h2>
-            {{ __('Login') }}
-        </h2>
+        {{ __('Login') }}
     </x-slot>
     <x-auth-card>
         <x-slot name="logo">
