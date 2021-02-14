@@ -1,5 +1,11 @@
 <x-guest-layout>
     <x-auth-card>
+        <x-slot name="header">
+            <h2>
+                {{ __('Login') }}
+            </h2>
+        </x-slot>
+
         <x-slot name="logo">
             <a href="/">
                 <x-application-logo/>
