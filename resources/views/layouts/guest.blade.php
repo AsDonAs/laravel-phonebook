@@ -28,8 +28,9 @@
             </div>
         </header>
 
-        <div>
+        <!-- Page Content -->
+        <main>
             {{ $slot }}
-        </div>
+        </main>
     </body>
 </html>
