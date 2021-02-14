@@ -3,10 +3,12 @@
         {{ __('Edit contact') }}
     </x-slot>
 
-    @include("main.phone-contact.phone-contact-form", [
-        "method" => "PATCH",
-        "data" => $data,
-        "actionRoute" => "phone-contacts.update",
-        "submitButtonTitle" => __('Edit'),
-    ])
+    <div class="container main-pages">
+        @include("main.phone-contact.phone-contact-form", [
+            "method" => "PATCH",
+            "data" => $data,
+            "actionRoute" => "phone-contacts.update",
+            "submitButtonTitle" => __('Edit'),
+        ])
+    </div>
 </x-app-layout>

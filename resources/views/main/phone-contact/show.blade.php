@@ -4,7 +4,7 @@
     </x-slot>
 
     <!-- Actions -->
-    <div>
+    <div class="container main-pages">
         <a href="{{ route("phone-contacts.edit", [$data->id]) }}" title="{{ __('Edit contact') }}"><span>edit</span></a>
         <a>
             <form method="POST" action="{{ route('phone-contacts.destroy', [$data->id]) }}" title="{{ __('Delete contact') }}">
@@ -17,11 +17,11 @@
                 </x-nav-link>
             </form>
         </a>
-    </div>
 
-    <div><label>ID</label> : {{ $data->id }}</div>
-    <div><label>Fullname</label> : {{ $data->fullname }}</div>
-    <div><label>Phone</label> : {{ $data->phone }}</div>
-    <div><label>Description</label> : {{ $data->description }}</div>
-    <div><label>Is Favorite</label> : {{ $data->is_favorite ? "true" : "false" }}</div>
+        <div><label>ID</label> : {{ $data->id }}</div>
+        <div><label>Fullname</label> : {{ $data->fullname }}</div>
+        <div><label>Phone</label> : {{ $data->phone }}</div>
+        <div><label>Description</label> : {{ $data->description }}</div>
+        <div><label>Is Favorite</label> : {{ $data->is_favorite ? "true" : "false" }}</div>
+    </div>
 </x-app-layout>

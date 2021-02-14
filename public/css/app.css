@@ -24,6 +24,13 @@ main {
     margin: auto;
 }
 
+.main-pages {
+    min-height: 100%;
+    width: 100%;
+    padding: 15px;
+    margin: auto;
+}
+
 .footer {
     position: absolute;
     bottom: 0;

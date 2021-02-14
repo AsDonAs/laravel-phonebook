@@ -2,20 +2,29 @@
     <x-slot name="header">
         {{ __('List contacts') }}
     </x-slot>
-    <div>
-        Items will be here!
-
-        <a href="{{ route("phone-contacts.create") }}">{{ __('Add contact') }}</a>
-        <table>
-            <tr>
-                <td>ID</td>
-                <td>ФИО</td>
-                <td>Телефон</td>
-                <td>Описание</td>
-                <td>Избранный</td>
-                <td>Действия</td>
-            </tr>
-            @each("main.phone-contact.index_row", $contacts, "contact")
+    <div class="main-pages">
+        <div class="row">
+            <div class="col-md-6">
+                <h3>{{ __('List contacts') }}</h3>
+            </div>
+            <div class="offset-md-3 col-md-3 text-right">
+                <a href="{{ route("phone-contacts.create") }}" title="{{ __('Add contact') }}">{{ __('Add contact') }}</a>
+            </div>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">ФИО</th>
+                    <th scope="col">Телефон</th>
+                    <th scope="col">Описание</th>
+                    <th scope="col">Избранный</th>
+                    <th scope="col">Действия</th>
+                </tr>
+            </thead>
+            <tbody>
+                @each("main.phone-contact.index_row", $contacts, "contact")
+            </tbody>
         </table>
     </div>
 </x-app-layout>

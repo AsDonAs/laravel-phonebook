@@ -1,5 +1,5 @@
 <tr>
-    <td>{{ $contact->id }}</td>
+    <th scope="col">{{ $contact->id }}</th>
     <td>{{ $contact->fullname }}</td>
     <td>{{ $contact->phone }}</td>
     <td>{{ $contact->description }}</td>
