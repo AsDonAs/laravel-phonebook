@@ -1,27 +1,45 @@
 <x-guest-layout>
     <x-slot name="header">
-        <h2>
-            {{ __('Welcome') }}
-        </h2>
+        {{ __('Welcome') }}
     </x-slot>
 
-    <div class="data">
-        @if (Route::has('login'))
-            <div class="">
-                @auth
-                    <a href="{{ route('phone-contacts') }}" class="underline">{{ __('Phone contacts') }}</a>
-                @else
-                    <a href="{{ route('login') }}" class="underline">{{ __('Login') }}</a>
+    <div class="welcome">
+        <div class="container">
+            @auth
+                <div class="row">
+                    <div class="col-md-6">
+                        <a href="{{ route('phone-contacts') }}" class="btn btn-success" title="{{ __('Phone contacts') }}">
+                            <span class="material-icons">list_alt</span>
+                            {{ __('Phone contacts') }}
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <form class="form-inline" method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <x-nav-link :href="route('logout')"
+                                        class="btn btn-danger"
+                                        title="{{ __('Logout') }}"
+                                        onclick="event.preventDefault();
+                            this.closest('form').submit();">
+                                <span class="material-icons">logout</span>
+                                {{ __('Logout') }}
 
-                    @if (Route::has('register'))
-                        <a href="{{ route('register') }}" class="underline">{{ __('Register') }}</a>
-                    @endif
-                @endauth
-            </div>
-        @endif
-
-        <div class="text">
-            Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
+                            </x-nav-link>
+                        </form>
+                    </div>
+                </div>
+            @else
+                @if (Route::has('register'))
+                    <a href="{{ route('register') }}" class="btn btn-info" title="{{ __('Register') }}">
+                        <span class="material-icons">person_add_alt_1</span>
+                        {{ __('Register') }}
+                    </a>
+                @endif
+                <a href="{{ route('login') }}" class="btn btn-success" title="{{ __('Login') }}">
+                    <span class="material-icons">login</span>
+                    {{ __('Login') }}
+                </a>
+            @endauth
         </div>
     </div>
 </x-guest-layout>
