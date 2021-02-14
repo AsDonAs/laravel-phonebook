@@ -42,7 +42,7 @@
                     </tr>
                     <tr>
                         <th scope="col"><label>Is Favorite</label></th>
-                        <td>{{ $data->is_favorite ? "true" : "false" }}</td>
+                        <td>{{ $data->is_favorite ? __('Yes') : __('No') }}</td>
                     </tr>
                     </tbody>
                 </table>
