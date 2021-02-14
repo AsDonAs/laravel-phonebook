@@ -19,14 +19,14 @@
             @csrf
 
             <!-- Email Address -->
-            <div>
+            <div class="form-group">
                 <x-label for="email" :value="__('Email')" />
 
                 <x-input id="email" type="email" name="email" :value="old('email')" required autofocus />
             </div>
 
             <!-- Password -->
-            <div>
+            <div class="form-group">
                 <x-label for="password" :value="__('Password')" />
 
                 <x-input id="password"
@@ -36,21 +36,21 @@
             </div>
 
             <!-- Remember Me -->
-            <div>
-                <label for="remember_me">
-                    <input id="remember_me" type="checkbox" name="remember">
+            <div class="form-group form-check">
+                <input id="remember_me" class="form-check-input" type="checkbox" name="remember">
+                <label class="form-check-label" for="remember_me">
                     <span>{{ __('Remember me') }}</span>
                 </label>
             </div>
 
-            <div>
+            <div class="form-group">
                 @if (Route::has('password.request'))
-                    <a class="underline" href="{{ route('password.request') }}">
+                    <a class="btn btn-info" href="{{ route('password.request') }}">
                         {{ __('Forgot your password?') }}
                     </a>
                 @endif
 
-                <x-button>
+                <x-button class="btn btn-success">
                     {{ __('Login') }}
                 </x-button>
             </div>

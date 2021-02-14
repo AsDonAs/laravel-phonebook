@@ -3,12 +3,6 @@
         {{ __('Confirm password') }}
     </x-slot>
     <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo/>
-            </a>
-        </x-slot>
-
         <div>
             {{ __('This is a secure area of the application. Please confirm your password before continuing.') }}
         </div>
@@ -20,7 +14,7 @@
             @csrf
 
             <!-- Password -->
-            <div>
+            <div class="form-group">
                 <x-label for="password" :value="__('Password')" />
 
                 <x-input id="password"
@@ -29,8 +23,8 @@
                                 required autocomplete="current-password" />
             </div>
 
-            <div>
-                <x-button>
+            <div class="form-group">
+                <x-button class="btn">
                     {{ __('Confirm') }}
                 </x-button>
             </div>

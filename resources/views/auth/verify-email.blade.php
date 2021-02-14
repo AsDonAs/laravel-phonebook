@@ -3,12 +3,6 @@
         {{ __('Verify email') }}
     </x-slot>
     <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo/>
-            </a>
-        </x-slot>
-
         <div>
             {{ __('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}
         </div>
@@ -23,8 +17,8 @@
             <form method="POST" action="{{ route('verification.send') }}">
                 @csrf
 
-                <div>
-                    <x-button>
+                <div class="form-group">
+                    <x-button class="btn btn-success">
                         {{ __('Resend Verification Email') }}
                     </x-button>
                 </div>
@@ -33,9 +27,11 @@
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
 
-                <button type="submit">
-                    {{ __('Logout') }}
-                </button>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-danger">
+                        {{ __('Logout') }}
+                    </button>
+                </div>
             </form>
         </div>
     </x-auth-card>
